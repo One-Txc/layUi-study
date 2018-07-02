@@ -32,4 +32,24 @@ if((url+"").startsWith("file:")){
     isAccessFile = true;
 }
 
-console.log(isAccessFile)
+console.log("isAccessFile:"+isAccessFile);
+
+//判断是手机还是pc
+function IsPC() {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = ["Android", "iPhone",
+        "SymbianOS", "Windows Phone",
+        "iPad", "iPod"];
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
+}
+
+var isPc = true;
+isPc = IsPC();
+console.log("isPC:"+isPc);
