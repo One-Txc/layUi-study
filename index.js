@@ -28,10 +28,13 @@ var dzhCss = {
 
 $("#dzh-desc").css(dzhCss);
 
+if(userName == ""){
+    userName = "思雨小同学,我想到你啦";
+}
+
 if(userName != ""){
     $("#descId").val(userName);
     $("#descId").html(userName);
-
     $("#dzh-desc").remove();
 }else {
     layui.use(['layer', 'form'], function(){
@@ -43,6 +46,10 @@ if(userName != ""){
             content: '体验了你确定不给我一个赞和好评吗!'
         });
     });
+}
+if(question != ""){
+    $("#questionId").val(question);
+    $("#questionId").html(question);
 }
 
 
@@ -60,26 +67,8 @@ var okCount = 0;
 function okButtonClick() {
     $("#dzh-desc").remove();
     okCount += 1;
-    if(okCount == 1){
-        layer.open({
-            //title: '爱你',
-            title: '没结果',
-            type: 2,
-            area: ['400px', '400px'],
-            content: 'haha.html',
-            end: function(index, layero){
-            }
-        });
-    }else if(okCount == 2){
-        layer.open({
-            title: '少做梦了',
-            type: 2,
-            area: ['500px', '500px'],
-            content: 'xingxing.html',
-            end: function(index, layero){
-            }
-        });
-    }else {
+
+    if(happyEnd){
         layer.open({
             title: '爱你',
             type: 2,
@@ -88,6 +77,36 @@ function okButtonClick() {
             end: function(index, layero){
             }
         });
+    }else {
+        if(okCount == 1){
+            layer.open({
+                //title: '爱你',
+                title: '没结果',
+                type: 2,
+                area: ['400px', '400px'],
+                content: 'haha.html',
+                end: function(index, layero){
+                }
+            });
+        }else if(okCount == 2){
+            layer.open({
+                title: '少做梦了',
+                type: 2,
+                area: ['500px', '500px'],
+                content: 'xingxing.html',
+                end: function(index, layero){
+                }
+            });
+        }else {
+            layer.open({
+                title: '爱你',
+                type: 2,
+                area: ['500px', '500px'],
+                content: 'ok.html',
+                end: function(index, layero){
+                }
+            });
+        }
     }
 }
 

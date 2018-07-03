@@ -12,7 +12,7 @@
 <body style="background-color: #2E2D3C;">
 
     <div id="body-div" class="layui-card"
-         style="height: 500px;width: 500px;text-align: center;display: none">
+         style="height: 500px;width: 500px;text-align: center">
         <!--版本一有事图片和文字换行待优化 -->
         <!--<div class="layui-card-header">黎同学我有话和你说</div>
         <div class="layui-container" style="width: 480px">
@@ -35,7 +35,7 @@
         <div class="layui-container" style="width: 480px">
             <div class="layui-row">
                         <br>
-                <span style="font-family: sans-serif;font-weight:bold;font-size:20px;">做我女朋友好不好?</span>
+                <span id="questionId" style="font-family: sans-serif;font-weight:bold;font-size:20px;">做我女朋友好不好?</span>
                 <img src="image/a.jpg" style="width: 250px;height: 250px">
             </div>
         </div>
@@ -48,16 +48,18 @@
         <div style="padding-top: 30px">
             <button class="layui-btn layui-btn-warm" style="width: 200px;height: 100px" id="okButton" onclick="okButtonClick()">好好</button>
             <button class="layui-btn layui-btn-danger" onclick="noButtonClick()" id="noButton">不好</button>
-            <button class="layui-btn layui-btn-danger" onclick="okButtonClick()" onmouseover="this.innerHTML='好好'" <!--onmouseout="this.innerHTML='不好'"-->>不好</button>
+            <button class="layui-btn layui-btn-danger" onclick="okButtonClick()" onmouseover="this.innerHTML='好好'">不好</button>
         </div>
     </div>
 
     <div id="dzh-desc" class="layui-card" style="width: 500px">
         <div class="layui-card-header">定制化说明</div>
         <div class="layui-card-body">
-            <a href="./?dzh=自定义文字">http://111.230.142.95:666/?dzh=自定义文字</a><br>
+            <!--<a href="./?dzh=自定义文字">http://111.230.142.95:666/?dzh=自定义文字</a><br>-->
             http://111.230.142.95:666/?dzh=自定义文字<br>
+            http://111.230.142.95:666/?userName=改成你要的小哥哥名称&question=做我男朋友好不好？<br>
             将上面链接中的中文 替换成自己想要的文字就可以了<br>
+            还是不会的可以 最右 上私信我
             <!--最右点赞地址：https://share.izuiyou.com/detail/54628372?zy_to=applink&to=applink-->
         </div>
     </div>

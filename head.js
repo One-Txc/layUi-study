@@ -14,17 +14,36 @@ function closeAllOpen(){
 
 var url = window.location.href;
 var userName = "";
+var happyEnd = true;
+var question = "";
 console.log(url);
 //获取参数
 if(url.indexOf("?")>-1){
     try {
         var param = url.substring(url.indexOf("?")+1);
-        userName = param.split("=")[1];
-        userName = decodeURIComponent(userName);
-    }catch (e){
-
-    }
+        var paramArray =  param.split("&");
+        for (var i=0; i<paramArray.length; i++){
+            var oneParam = paramArray[i];
+            var paramName = oneParam.split("=")[0];
+            var paramValue = oneParam.split("=")[1];
+            if(paramName == "userName"){
+                userName = decodeURIComponent(paramValue);
+            }else if(paramName == "happyEnd"){
+                if(decodeURIComponent(paramValue) == "0"){
+                    happyEnd = false;
+                }
+            }else if(paramName == "question"){
+                question = decodeURIComponent(paramValue);
+            }else {
+                userName = decodeURIComponent(paramValue);
+            }
+        }
+    }catch (e){}
 }
+
+// if(question.length > 9){
+//     question.substring(0,9)
+// }
 
 var isAccessFile = false;
 //判断是用服务方式还是直接访问文件
