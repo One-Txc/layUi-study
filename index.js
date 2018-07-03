@@ -28,9 +28,9 @@ var dzhCss = {
 
 $("#dzh-desc").css(dzhCss);
 
-if(userName == ""){
-    userName = "思雨小同学,我想到你啦";
-}
+// if(userName == ""){
+//     userName = "思雨小同学,我想到你啦";
+// }
 
 if(userName != ""){
     $("#descId").val(userName);
