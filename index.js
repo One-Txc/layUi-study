@@ -14,6 +14,7 @@ console.log(h);
 if(!isPc){
     bodydivSize = w<h?w:h;
     bodydivSize = bodydivSize*0.9;
+    $("#fraudulenceButton").remove();
 }
 
 if(w > bodydivSize){
@@ -220,5 +221,7 @@ function noButtonClick() {
         $('#noButton').css(bcss)
     }
 }
+
+
 
 
