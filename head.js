@@ -16,11 +16,15 @@ var url = window.location.href;
 var userName = "";
 var happyEnd = true;
 var question = "";
+var isDz = false;
 console.log(url);
-//获取参数
+//获取参数-只要存在参数就认为是定制版
 if(url.indexOf("?")>-1){
     try {
         var param = url.substring(url.indexOf("?")+1);
+        if(param.length>0){
+            isDz = true;
+        }
         var paramArray =  param.split("&");
         for (var i=0; i<paramArray.length; i++){
             var oneParam = paramArray[i];
@@ -41,16 +45,12 @@ if(url.indexOf("?")>-1){
     }catch (e){}
 }
 
-// if(question.length > 9){
-//     question.substring(0,9)
-// }
 
 var isAccessFile = false;
 //判断是用服务方式还是直接访问文件
 if((url+"").startsWith("file:")){
     isAccessFile = true;
 }
-
 console.log("isAccessFile:"+isAccessFile);
 
 //判断是手机还是pc

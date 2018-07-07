@@ -2,28 +2,25 @@
 
 
 var bodydivSize = 500;
-
 var skewingLeft = 0;
 var skewingTop = 0;
-
 var w = window.innerWidth ;
 var h = window.innerHeight ;
 console.log(w);
 console.log(h);
 
+//不是电脑端则去除广告和提示
 if(!isPc){
     bodydivSize = w<h?w:h;
     bodydivSize = bodydivSize*0.9;
     $("#fraudulenceButton").remove();
 }
-
 if(w > bodydivSize){
     skewingLeft = (w-bodydivSize)/2;
 }
 if(h > bodydivSize){
     skewingTop = (h-bodydivSize)/2;
 }
-
 var css = {
     'height': bodydivSize+'px',
     'width': bodydivSize+'px',
@@ -32,28 +29,20 @@ var css = {
 };
 $("#body-div").css(css);
 var dzhCss = {
+    'height': bodydivSize+'px',
+    'width': bodydivSize+'px',
     'margin-left': skewingLeft+'px',
 };
-
-
-
-
-
 $("#dzh-desc").css(dzhCss);
 
-// if(userName == ""){
-//     userName = "思雨小同学,我想到你啦";
-// }
-
-if(userName != ""){
-    $("#descId").val(userName);
-    $("#descId").html(userName);
-    $("#dzh-desc").remove();
-}else {
+//判断是否展示广告和说明
+if(isPc && !isDz){
+    $("#dzh-desc").show();
+}
+if(!isDz){
     layui.use(['layer', 'form'], function(){
         layer = layui.layer;
         form = layui.form;
-
         layui.layer.open({
             //title: '我发四',
             // content: '由于小哥哥最近吃了太多狗粮,所以强势求女友呀,有意私我!'
@@ -61,11 +50,20 @@ if(userName != ""){
         });
     });
 }
+
+if(userName != ""){
+    $("#titleId").val(userName);
+    $("#titleId").html(userName);
+}
 if(question != ""){
     $("#questionId").val(question);
     $("#questionId").html(question);
 }
-
+if(isPc){
+    $("#questionId").css({
+        'font-size': '18px'
+    })
+}
 
 //按钮的left,top坐标
 //获取页面某一元素的绝对X,Y坐标
@@ -79,9 +77,7 @@ var indexLeft = $('#okButton').offset().left;
 
 var okCount = 0;
 function okButtonClick() {
-    $("#dzh-desc").remove();
     okCount += 1;
-
     if(happyEnd){
         layer.open({
             title: '爱你',
@@ -123,8 +119,6 @@ function okButtonClick() {
         }
     }
 }
-
-
 
 var noCount = 0;
 function noButtonClick() {
@@ -205,13 +199,13 @@ function noButtonClick() {
         var leftP;
         do{
             leftP = parseInt(Math.random()*(w-bWidth));
-        }while(leftP<=(indexLeft+bWidth) && leftP>=indexLeft);
+        }while(leftP<=(indexLeft+bWidth) && leftP>=indexLeft && false);
         indexLeft = leftP;
 
         var topP;
         do{
             topP = parseInt(Math.random()*(h-bHeigth));
-        }while(topP<=(indexTop+bHeigth) && topP>=indexTop);
+        }while(topP<=(indexTop+bHeigth) && topP>=indexTop && false);
         indexTop = topP;
         var bcss = {
             position: 'absolute',
@@ -222,6 +216,14 @@ function noButtonClick() {
     }
 }
 
-
+var fraudulenceCount = 0;
+function fraudulence(){
+    fraudulenceCount += 1;
+    if(fraudulenceCount == 1){
+        $("#fraudulenceButton").html("好好");
+    }else {
+        okButtonClick();
+    }
+}
 
 
