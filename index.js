@@ -1,7 +1,8 @@
 
 
 
-const bodydivSize = 500;
+var bodydivSize = 500;
+
 var skewingLeft = 0;
 var skewingTop = 0;
 
@@ -10,14 +11,20 @@ var h = window.innerHeight ;
 console.log(w);
 console.log(h);
 
+if(!isPc){
+    bodydivSize = w<h?w:h;
+}
+
 if(w > bodydivSize){
-    skewingLeft = (w-500)/2;
+    skewingLeft = (w-bodydivSize)/2;
 }
 if(h > bodydivSize){
-    skewingTop = (h-500)/2;
+    skewingTop = (h-bodydivSize)/2;
 }
 
 var css = {
+    'height': bodydivSize+'px',
+    'width': bodydivSize+'px',
     'margin-left': skewingLeft+'px',
     'margin-top': skewingTop+'px'
 };
@@ -25,6 +32,10 @@ $("#body-div").css(css);
 var dzhCss = {
     'margin-left': skewingLeft+'px',
 };
+
+
+
+
 
 $("#dzh-desc").css(dzhCss);
 
@@ -43,8 +54,8 @@ if(userName != ""){
 
         layui.layer.open({
             //title: '我发四',
-            content: '由于小哥哥最近吃了太多狗粮,所以强势求女友呀,有意私我!'
-            //content: '体验了你确定不给我一个赞和好评吗!'
+            // content: '由于小哥哥最近吃了太多狗粮,所以强势求女友呀,有意私我!'
+            content: '体验了你确定不给我一个赞和好评吗!'
         });
     });
 }
@@ -84,7 +95,7 @@ function okButtonClick() {
                 //title: '爱你',
                 title: '没结果',
                 type: 2,
-                area: ['400px', '400px'],
+                area: [bodydivSize+'px', bodydivSize+'px'],
                 content: 'haha.html',
                 end: function(index, layero){
                 }
@@ -93,16 +104,16 @@ function okButtonClick() {
             layer.open({
                 title: '少做梦了',
                 type: 2,
-                area: ['500px', '500px'],
+                area: [bodydivSize+'px', bodydivSize+'px'],
                 content: 'xingxing.html',
                 end: function(index, layero){
                 }
             });
         }else {
             layer.open({
-                title: '爱你',
+                title: '天旋地转',
                 type: 2,
-                area: ['500px', '500px'],
+                area: [bodydivSize+'px', bodydivSize+'px'],
                 content: 'ok.html',
                 end: function(index, layero){
                 }
@@ -188,6 +199,24 @@ function noButtonClick() {
             };
             $('#noButton').css(bcss)
         });
+    }else {
+        var leftP;
+        do{
+            leftP = parseInt(Math.random()*(w-bWidth));
+        }while(leftP<=(indexLeft+bWidth) && leftP>=indexLeft);
+        indexLeft = leftP;
+
+        var topP;
+        do{
+            topP = parseInt(Math.random()*(h-bHeigth));
+        }while(topP<=(indexTop+bHeigth) && topP>=indexTop);
+        indexTop = topP;
+        var bcss = {
+            position: 'absolute',
+            left: indexLeft+'px',
+            top: indexTop+'px'
+        };
+        $('#noButton').css(bcss)
     }
 }
 

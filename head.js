@@ -68,7 +68,7 @@ function IsPC() {
     }
     return flag;
 }
-
 var isPc = true;
 isPc = IsPC();
+
 console.log("isPC:"+isPc);

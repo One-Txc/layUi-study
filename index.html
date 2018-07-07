@@ -1,65 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="UTF-8">
     <title>一个神秘的程序员小哥哥</title>
-
     <link rel="stylesheet" href="lib/layui/css/layui.css">
     <script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
     <script src="lib/layui/layui.js"></script>
     <script src="head.js"></script>
 </head>
 <body style="background-color: #2E2D3C;">
-
-    <div id="body-div" class="layui-card"
-         style="height: 500px;width: 500px;text-align: center">
-        <!--版本一有事图片和文字换行待优化 -->
-        <!--<div class="layui-card-header">黎同学我有话和你说</div>
-        <div class="layui-container" style="width: 480px">
-            <div class="layui-row">
-                <div class="layui-col-md6">
-                    &lt;!&ndash;<div class="layui-card-header">卡片面板</div>&ndash;&gt;
-                    <div class="layui-card-body" style="padding-top: 80px;">
-                        黎同学,我观察你很久了<br>
-                        <span style="font-family: sans-serif;font-weight:bold;font-size:20px;">做我女朋友好不好?</span>
-                    </div>
-                </div>
-                <div class="layui-col-md6">
-                    <img src="image/a.jpg" style="width: 250px;height: 250px">
-                </div>
-            </div>
-        </div>-->
-
-        <!--版本2 左边字数有限制 -->
-        <div id="descId" class="layui-card-header">涂思雨同学,我又想你了</div>
-        <div class="layui-container" style="width: 480px">
-            <div class="layui-row">
-                        <br>
-                <span id="questionId" style="font-family: sans-serif;font-weight:bold;font-size:20px;">做我女朋友好不好?</span>
-                <img src="image/a.jpg" style="width: 250px;height: 250px">
-            </div>
+    <div id="body-div" class="layui-card layui-row layui-col-space15" style="text-align: center">
+        <div class="layui-col-md12 layui-card-header" style="height: auto">
+            <span id="title" style="font-family: sans-serif;font-weight:bold;font-size:20px;">这是一封邀请函1</span>
         </div>
+        <div style="height: 60%">
 
-        <!--版本3：图片为文字为静态的-->
-        <!--<div class="layui-card-header">黎同学我有话和你说</div>
-        <div>
-            <img src="image/c.png" style="width: 480px;height: 300px">
-        </div>-->
-        <div style="padding-top: 30px">
+
+
+
+            <div style="display: inline">
+                <span id="questionId" style="font-family: sans-serif;font-weight:bold;font-size:18px;">今天可以请你去看电影吗?</span>
+            </div>
+            <img src="image/a.jpg" style="width: 50%;">
+        </div>
+        <div class="layui-col-md12">
+            <button class="layui-btn layui-btn-danger" onclick="okButtonClick()" onmouseover="this.innerHTML='好好'">>>不好</button>
             <button class="layui-btn layui-btn-warm" style="width: 200px;height: 100px" id="okButton" onclick="okButtonClick()">好好</button>
             <button class="layui-btn layui-btn-danger" onclick="noButtonClick()" id="noButton">不好</button>
-            <button class="layui-btn layui-btn-danger" onclick="okButtonClick()" onmouseover="this.innerHTML='好好'">不好</button>
         </div>
     </div>
 
-    <div id="dzh-desc" class="layui-card" style="width: 500px">
+
+    <div id="dzh-desc" class="layui-card">
         <div class="layui-card-header">定制化说明(认真看下呗)</div>
         <div class="layui-card-body">
             <!--<a href="./?dzh=自定义文字">http://111.230.142.95:666/?dzh=自定义文字</a><br>-->
             http://111.230.142.95:666/?userName=<span style="color: red">标题</span>&question=<span style="color: red">做我男朋友好不好?</span><br><br>
             http://111.230.142.95:777/?userName=<span style="color: red">标题</span>&question=<span style="color: red">做我男朋友好不好?</span><br><br>
             1.将上面的红色中文 替换成自己想要的文字就可以了,第一个为男生版本，第二个为女生版本,有细微不同<br><br>
-            2.不会的尽量自己尝试一下吧,<span style="color: red">定制版的不会有(求女友)广告和底部的说明</span>,有时间我会更新一个手机端的版本的,祝大家玩的开心。<br><br>
+            2.不会的尽量自己尝试一下吧,<span style="color: red">定制版的不会有<!--(求女友)-->(求赞)广告和底部的说明</span>,有时间我会更新一个手机端的版本的,祝大家玩的开心。<br><br>
             3.还是不会的可以 最右 上私信我(没回的话可能忘了,可以多私信几个).还有请给个赞.将酱紫<br><br>
             4.有好的建议也可以私信我呀
             <!--最右点赞地址：https://share.izuiyou.com/detail/54628372?zy_to=applink&to=applink-->
