@@ -25,6 +25,9 @@ if(url.indexOf("?")>-1){
         if(param.length>0){
             isDz = true;
         }
+        if(param == "99"){
+            userName = "涂思雨同学,突然想起你";
+        }
         var paramArray =  param.split("&");
         for (var i=0; i<paramArray.length; i++){
             var oneParam = paramArray[i];
