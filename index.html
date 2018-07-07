@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>一个神秘的程序员小哥哥</title>
+    <title>一个神秘的小哥哥</title>
     <link rel="stylesheet" href="lib/layui/css/layui.css">
     <script type="text/javascript" src="lib/jquery-3.3.1.min.js"></script>
     <script src="lib/layui/layui.js"></script>
@@ -16,22 +16,15 @@
 <body style="background-color: #2E2D3C;">
     <div id="body-div" class="layui-card layui-row layui-col-space15" style="text-align: center">
         <div class="layui-col-md12 layui-card-header" style="height: auto">
-            <span id="title" style="font-family: sans-serif;font-weight:bold;font-size:20px;">这是一封邀请函1</span>
+            <span id="titleId" style="font-family: sans-serif;font-weight:bold;font-size:20px;">这是一封邀请函2</span>
         </div>
         <div style="height: 60%">
 
-            <div class="layui-container" style="">
-                <div class="layui-row">
-                    <div class="layui-col-md6">
-                        <div class="layui-card-body" style="padding-top: 80px;">
-                            黎同学,我观察你很久了<br>
-                            <span style="font-family: sans-serif;font-weight:bold;font-size:20px;">做我女朋友好不好?</span>
-                        </div>
-                    </div>
-                    <div class="layui-col-md6">
-                        <img src="image/a.jpg" style="width: 250px;height: 250px">
-                    </div>
-                </div>
+            <div style="display: inline;width: 50%" >
+                <span id="questionId" style="margin: auto;font-family: sans-serif;font-weight:bold;font-size:14px;">今天请你看电影好不好?</span>
+            </div>
+            <div style="display: inline;width: 50%" >
+                <img src="image/a.jpg" style="width: 50%;">
             </div>
 
 
@@ -43,13 +36,13 @@
         </div>
         <div class="layui-col-md12">
             <button class="layui-btn layui-btn-danger" onclick="okButtonClick()" onmouseover="this.innerHTML='好好'">>>不好</button>
-            <button class="layui-btn layui-btn-warm" style="width: 200px;height: 100px" id="okButton" onclick="okButtonClick()">好好</button>
+            <button class="layui-btn  layui-btn-lg layui-btn-warm" style="height: 100px;width: 150px" id="okButton" onclick="okButtonClick()">好好</button>
             <button class="layui-btn layui-btn-danger" onclick="noButtonClick()" id="noButton">不好</button>
         </div>
     </div>
 
 
-    <div id="dzh-desc" class="layui-card">
+    <div id="dzh-desc" class="layui-card" style="display: none">
         <div class="layui-card-header">定制化说明(认真看下呗)</div>
         <div class="layui-card-body">
             <!--<a href="./?dzh=自定义文字">http://111.230.142.95:666/?dzh=自定义文字</a><br>-->

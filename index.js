@@ -13,6 +13,7 @@ console.log(h);
 
 if(!isPc){
     bodydivSize = w<h?w:h;
+    bodydivSize = bodydivSize*0.9;
 }
 
 if(w > bodydivSize){
@@ -84,7 +85,7 @@ function okButtonClick() {
         layer.open({
             title: '爱你',
             type: 2,
-            area: ['500px', '500px'],
+            area: [bodydivSize+'px', bodydivSize+'px'],
             content: 'ok.html',
             end: function(index, layero){
             }
@@ -147,7 +148,7 @@ function noButtonClick() {
             closeBtn:isAccessFile?1:0,
             title: '要不答应,先答题',
             type: 2,
-            area: ['500px', '500px'],
+            area: [bodydivSize+'px', bodydivSize+'px'],
             content: 'question-01.html',
             end: function(index, layero){
             }
@@ -157,7 +158,7 @@ function noButtonClick() {
             closeBtn:isAccessFile?1:0,
             title: '再来一题',
             type: 2,
-            area: ['500px', '500px'],
+            area: [bodydivSize+'px', bodydivSize+'px'],
             content: 'question-02.html',
             end: function(index, layero){
             }
@@ -167,7 +168,7 @@ function noButtonClick() {
             closeBtn:isAccessFile?1:0,
             title: '还不放弃吗？',
             type: 2,
-            area: ['500px', '500px'],
+            area: [bodydivSize+'px', bodydivSize+'px'],
             content: 'question-03.html',
             end: function(index, layero){
             }
@@ -184,13 +185,13 @@ function noButtonClick() {
             var leftP;
             do{
                 leftP = parseInt(Math.random()*(w-bWidth));
-            }while(leftP<=(indexLeft+bWidth) && leftP>=indexLeft);
+            }while(leftP<=(indexLeft+bWidth) && leftP>=indexLeft && leftP>=(w-bWidth));
             indexLeft = leftP;
 
             var topP;
             do{
                 topP = parseInt(Math.random()*(h-bHeigth));
-            }while(topP<=(indexTop+bHeigth) && topP>=indexTop);
+            }while(topP<=(indexTop+bHeigth) && topP>=indexTop && topP>=(h-bHeigth));
             indexTop = topP;
             var bcss = {
                 position: 'absolute',
