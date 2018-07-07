@@ -1,5 +1,23 @@
 
 
+var tishiList = [
+    {
+        type:"msg",
+        content:"房子写你的名字"
+    },
+    {
+
+    },
+    {
+
+    },
+    {
+
+    },
+    {
+
+    }];
+
 
 var bodydivSize = 500;
 var skewingLeft = 0;
@@ -155,8 +173,6 @@ function noButtonClick() {
             type: 2,
             area: [bodydivSize+'px', bodydivSize+'px'],
             content: 'question-02.html',
-            end: function(index, layero){
-            }
         });
     }else if(noCount == 6){
         layer.open({
@@ -165,8 +181,6 @@ function noButtonClick() {
             type: 2,
             area: [bodydivSize+'px', bodydivSize+'px'],
             content: 'question-03.html',
-            end: function(index, layero){
-            }
         });
     }else if(noCount == 7){
         layui.layer.open({
