@@ -30,6 +30,9 @@ if(url.indexOf("?")>-1){
             var oneParam = paramArray[i];
             var paramName = oneParam.split("=")[0];
             var paramValue = oneParam.split("=")[1];
+            if(paramValue==undefined || paramValue==null){
+                paramValue = "";
+            }
             if(paramName == "userName"){
                 userName = decodeURIComponent(paramValue);
             }else if(paramName == "happyEnd"){
