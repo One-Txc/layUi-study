@@ -3,20 +3,35 @@
 var tishiList = [
     {
         type:"msg",
-        content:"房子写你的名字"
+        title:'',
+        content:"消息1"
     },
     {
-
+        type:"msg",
+        title:'',
+        content:"消息2"
     },
     {
-
+        type:"msg",
+        title:'',
+        content:"消息3"
     },
     {
-
+        type:"html",
+        title:'',
+        path:"html1"
     },
     {
-
-    }];
+        type:"html",
+        title:'',
+        path:"html1"
+    },
+    {
+        type:"html",
+        title:'',
+        path:"html1"
+    },
+    ];
 
 
 var bodydivSize = 500;
@@ -142,6 +157,69 @@ function okButtonClick() {
 var noCount = 0;
 function noButtonClick() {
     noCount += 1;
+    if(noCount <= tishiList.length){
+        var popupConfig = tishiList[noCount-1];
+        var popObj;
+        if(popupConfig.type == "msg"){
+            popObj = {
+                title: popupConfig.title,
+                content: popupConfig.content
+            }
+        }else {
+            popObj = {
+                closeBtn:isAccessFile?1:0,
+                title: popupConfig.title,
+                type: 2,
+                area: [bodydivSize+'px', bodydivSize+'px'],
+                content: popupConfig.path,
+            }
+        }
+        layui.layer.open(popObj);
+        if(noCount == tishiList.length){
+            $('#noButton').mouseover(function(){
+                //随机leftP,topP
+                var leftP;
+                do{
+                    leftP = parseInt(Math.random()*(w-bWidth));
+                }while(leftP<=(indexLeft+bWidth) && leftP>=indexLeft && leftP>=(w-bWidth));
+                indexLeft = leftP;
+
+                var topP;
+                do{
+                    topP = parseInt(Math.random()*(h-bHeigth));
+                }while(topP<=(indexTop+bHeigth) && topP>=indexTop && topP>=(h-bHeigth));
+                indexTop = topP;
+                var bcss = {
+                    position: 'absolute',
+                    left: indexLeft+'px',
+                    top: indexTop+'px'
+                };
+                $('#noButton').css(bcss)
+            });
+        }
+    }else {
+        var leftP;
+        do{
+            leftP = parseInt(Math.random()*(w-bWidth));
+        }while(leftP<=(indexLeft+bWidth) && leftP>=indexLeft && false);
+        indexLeft = leftP;
+
+        var topP;
+        do{
+            topP = parseInt(Math.random()*(h-bHeigth));
+        }while(topP<=(indexTop+bHeigth) && topP>=indexTop && false);
+        indexTop = topP;
+        var bcss = {
+            position: 'absolute',
+            left: indexLeft+'px',
+            top: indexTop+'px'
+        };
+        $('#noButton').css(bcss)
+    }
+
+
+    return;
+
     if(noCount == 1){
         layui.layer.open({
             title: '我发四'
@@ -164,8 +242,6 @@ function noButtonClick() {
             type: 2,
             area: [bodydivSize+'px', bodydivSize+'px'],
             content: 'question-01.html',
-            end: function(index, layero){
-            }
         });
     }else if(noCount == 5){
         layer.open({
